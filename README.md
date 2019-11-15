@@ -11,8 +11,9 @@ What is included:
 
 
 What is not included:
-• Crafing recipes: use crafttweaker
-• Growing flowers over the quarried area
+• Defining the quarried area by fence (who lays a 1000 x 1000 fence anyway?)
+• Crafing recipes. This mod may be considered OP in some packs so if pack creators are going to adjust these I have no reason to code them. Use crafttweaker instead
+• Growing flowers over the quarried area. This breaks thermodynamics so it is not cool.
 
 
 As noted before this is a port. The code and credits go to RWTema, the original author of Extra Utillities
