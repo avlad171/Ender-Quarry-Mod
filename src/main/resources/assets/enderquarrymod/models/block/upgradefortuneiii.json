@@ -1,0 +1,6 @@
+{
+    "parent": "enderquarrymod:block/upgradeblockbase",
+    "textures": {
+        "texture": "enderquarrymod:blocks/upgradefortuneiii"
+    }
+}

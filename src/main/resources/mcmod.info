@@ -1,0 +1,16 @@
+[
+{
+  "modid": "enderquarrymod",
+  "name": "Ender Quarry Mod",
+  "description": "Unofficial Ender Quarry port from ExU 1.7.10",
+  "version": "1.0.5",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Vlad"],
+  "credits": "RWTema, Vlad",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
