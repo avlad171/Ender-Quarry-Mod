@@ -1,11 +1,15 @@
 package com.myuki69.enderquarry;
 
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -20,10 +24,10 @@ public class EnderQuarryMod
 	public static EnderQuarryMod instance;
     public static final String MODID = "enderquarrymod";
     public static final String NAME = "Ender Quarry Mod";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.1.0";
 
 
-    public static EnderQuarry enderQuarry;
+    /*public static EnderQuarry enderQuarry;
     public static EnderMarker enderMarker;
     public static UpgradeBlock upgradeVoid;
     public static UpgradeBlock upgradeSilk;
@@ -55,12 +59,13 @@ public class EnderQuarryMod
         itemblock.setRegistryName(block.getRegistryName());
         ForgeRegistries.ITEMS.register(itemblock);
         ModelLoader.setCustomModelResourceLocation(itemblock, 0, new ModelResourceLocation(itemblock.getRegistryName(), "inventory"));
-
     }
+	*/
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-    	enderQuarry = new EnderQuarry();
+    	InitBlocks.init();
+    	/*enderQuarry = new EnderQuarry();
         ForgeRegistries.BLOCKS.register(enderQuarry);
         
         itemEnderQuarry = new ItemBlock(enderQuarry);
@@ -75,11 +80,11 @@ public class EnderQuarryMod
         itemEnderMarker = new ItemBlock(enderMarker);
         itemEnderMarker.setRegistryName(enderMarker.getRegistryName());
         ForgeRegistries.ITEMS.register(itemEnderMarker);
-        ModelLoader.setCustomModelResourceLocation(itemEnderMarker, 0, new ModelResourceLocation(itemEnderMarker.getRegistryName(), "inventory"));
+        //ModelLoader.setCustomModelResourceLocation(itemEnderMarker, 0, new ModelResourceLocation(itemEnderMarker.getRegistryName(), "inventory"));
         
         GameRegistry.registerTileEntity(TileEnderMarker.class, enderMarker.getRegistryName().toString());
         
-        registerUpgrade(upgradeVoid, itemUpgradeVoid, "upgradevoid", 1);
+        /*registerUpgrade(upgradeVoid, itemUpgradeVoid, "upgradevoid", 1);
         registerUpgrade(upgradeSilk, itemUpgradeSilk, "upgradesilk", 2);
         registerUpgrade(upgradeFortune1, itemUpgradeFortune1, "upgradefortunei", 3);
         registerUpgrade(upgradeFortune2, itemUpgradeFortune2, "upgradefortuneii", 4);
@@ -88,9 +93,9 @@ public class EnderQuarryMod
         registerUpgrade(upgradeSpeed2, itemUpgradeSpeed2, "upgradespeedii", 7);
         registerUpgrade(upgradeSpeed3, itemUpgradeSpeed3, "upgradespeediii", 8);
         registerUpgrade(upgradePump, itemUpgradePump, "upgradepump", 9);
-
+		*/
     }
-
+	
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
