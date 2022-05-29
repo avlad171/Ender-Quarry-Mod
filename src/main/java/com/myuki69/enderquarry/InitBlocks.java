@@ -43,23 +43,23 @@ public class InitBlocks {
     private static void init_upgrades()
     {
     	upgradeVoid = new UpgradeBlock("upgradevoid", 1);
-        ForgeRegistries.BLOCKS.register(upgradeVoid);
+        //ForgeRegistries.BLOCKS.register(upgradeVoid);
         upgradeSilk = new UpgradeBlock("upgradesilk", 2);
-        ForgeRegistries.BLOCKS.register(upgradeSilk);
+        //ForgeRegistries.BLOCKS.register(upgradeSilk);
         upgradeFortune1 = new UpgradeBlock("upgradefortunei", 3);
-        ForgeRegistries.BLOCKS.register(upgradeFortune1);
+        //ForgeRegistries.BLOCKS.register(upgradeFortune1);
         upgradeFortune2 = new UpgradeBlock("upgradefortuneii", 4);
-        ForgeRegistries.BLOCKS.register(upgradeFortune2);
+        //ForgeRegistries.BLOCKS.register(upgradeFortune2);
         upgradeFortune3 = new UpgradeBlock("upgradefortuneiii", 5);
-        ForgeRegistries.BLOCKS.register(upgradeFortune3);
+        //ForgeRegistries.BLOCKS.register(upgradeFortune3);
         upgradeSpeed1 = new UpgradeBlock("upgradespeedi", 6);
-        ForgeRegistries.BLOCKS.register(upgradeSpeed1);
+        //ForgeRegistries.BLOCKS.register(upgradeSpeed1);
         upgradeSpeed2 = new UpgradeBlock("upgradespeedii", 7);
-        ForgeRegistries.BLOCKS.register(upgradeSpeed2);
+        //ForgeRegistries.BLOCKS.register(upgradeSpeed2);
         upgradeSpeed3 = new UpgradeBlock("upgradespeediii", 8);
-        ForgeRegistries.BLOCKS.register(upgradeSpeed3);
+        //ForgeRegistries.BLOCKS.register(upgradeSpeed3);
         upgradePump = new UpgradeBlock("upgradepump", 9);
-        ForgeRegistries.BLOCKS.register(upgradePump);
+        //ForgeRegistries.BLOCKS.register(upgradePump);
         
         itemUpgradeVoid = new ItemBlock(upgradeVoid);
         itemUpgradeVoid.setRegistryName(upgradeVoid.getRegistryName());
@@ -102,7 +102,6 @@ public class InitBlocks {
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) 
 	{
-		//event.getRegistry().registerAll(tutorialBlock);
 		ForgeRegistries.BLOCKS.register(enderQuarry);
 		ForgeRegistries.BLOCKS.register(enderMarker);
 		ForgeRegistries.BLOCKS.register(upgradeVoid);
@@ -119,7 +118,6 @@ public class InitBlocks {
 	@SubscribeEvent
 	public static void registerItemBlocks(RegistryEvent.Register<Item> event)
 	{
-		//event.getRegistry().registerAll(new ItemBlock(tutorialBlock).setRegistryName(tutorialBlock.getRegistryName()));
 		ForgeRegistries.ITEMS.register(itemEnderQuarry);
 		ForgeRegistries.ITEMS.register(itemEnderMarker);
 		ForgeRegistries.ITEMS.register(itemUpgradeVoid);

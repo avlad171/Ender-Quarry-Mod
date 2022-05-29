@@ -449,6 +449,9 @@ public class TileEnderQuarry
 	    if(toBeMined == Blocks.BEDROCK)
 	    	return true;
 	    
+	    if (replaceWithDirt && toBeMined == Blocks.DIRT)
+	    	return true;
+	    
 	    if (replaceWithDirt && (toBeMined.isLeaves(toBeMinedState, this.world, miningPos) || toBeMined.isFoliage(this.world, miningPos) || toBeMined.isWood(this.world, miningPos) || (toBeMined instanceof IPlantable) || (toBeMined instanceof IGrowable)))
 	    {
 			return true;
@@ -493,17 +496,31 @@ public class TileEnderQuarry
 	    try
 	    {
 	    	boolean flag;
-	        
+	    	Object i = new ArrayList();
+	    	
 	    	//check if item has inventory storage capability
 	    	//if so, extract items
 	    	TileEntity tile = this.world.getTileEntity(miningPos);
-	    	System.out.println("Tile at " + miningPos + ": " + tile);
-			if(tile != null && tile.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP))
+			if(tile != null && tile.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null))
 			{
 				System.out.println("Found inventory containing tile at " + miningPos);
+				
+				//list inventory entries
+				IItemHandler inv = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+				for (int j = 0; j < inv.getSlots(); ++j)
+				{
+					if (inv.getStackInSlot(j).isEmpty())
+						continue;
+					
+					System.out.println("[Ender quarry] Extracting from inventory slot " + j + " " + inv.getStackInSlot(j));
+					int cnt = inv.getStackInSlot(j).getCount();
+					
+					//add the items in inventory to the quarry
+					((ArrayList)i).add(inv.extractItem(j, cnt, false));
+				}
 			}
 	        
-	        Object i = new ArrayList();
+	        
 	        if ((digType.isSilkTouch()) && (toBeMined.canSilkHarvest(this.world, miningPos, toBeMinedState, fakePlayer)))
 	        {
 	        	int j = 0;
