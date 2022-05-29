@@ -51,7 +51,7 @@ public class TileEnderQuarry
 	public static int baseDrain = 1800;
 	public static float hardnessDrain = 200.0F;
 	
-	public ArrayList<ItemStack> items = new ArrayList();
+	public ArrayList<ItemStack> items = new ArrayList<ItemStack>();
 	public FluidTank tank = new FluidTank(32000);
 	public EnergyStorage energy = new EnergyStorage(10000000);
 	public int neededEnergy = -1;
@@ -363,7 +363,6 @@ public class TileEnderQuarry
 			
 			if (!items.isEmpty() && config > 0) 
 			{
-				int side_id = 0;
 				BlockPos thisBlockPos = this.getPos();
 				for (EnumFacing face : EnumFacing.values())
 				{
@@ -395,9 +394,7 @@ public class TileEnderQuarry
 					if(tile != null && tile.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, face.getOpposite()))
 					{
 						IFluidHandler handler = tile.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, face.getOpposite());
-						int transfer = tank.getFluidAmount();
-
-	                    tank.drain(handler.fill(tank.getFluid(), true), true);
+						tank.drain(handler.fill(tank.getFluid(), true), true);
 					}
 
 				}
@@ -457,8 +454,6 @@ public class TileEnderQuarry
 			return true;
 	    }
 
-		//check for tile entities with inventory (chests etc) and extract their items
-
 	    int meta = toBeMined.getMetaFromState(toBeMinedState);
 	    float hardness = toBeMinedState.getBlockHardness(this.world, miningPos);
 	    
@@ -499,6 +494,14 @@ public class TileEnderQuarry
 	    {
 	    	boolean flag;
 	        
+	    	//check if item has inventory storage capability
+	    	//if so, extract items
+	    	TileEntity tile = this.world.getTileEntity(miningPos);
+	    	System.out.println("Tile at " + miningPos + ": " + tile);
+			if(tile != null && tile.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP))
+			{
+				System.out.println("Found inventory containing tile at " + miningPos);
+			}
 	        
 	        Object i = new ArrayList();
 	        if ((digType.isSilkTouch()) && (toBeMined.canSilkHarvest(this.world, miningPos, toBeMinedState, fakePlayer)))
