@@ -8,6 +8,7 @@ What is included:<br />
 • All upgrades<br />
 • New redstone control functionality<br />
 • FE/RF support<br />
+• Quarry extracts items from the chests it mines<br />
 <br />
 What is not included: <br />
 • Defining the quarried area by fence (who lays a 1000 x 1000 fence anyway?). <br />
